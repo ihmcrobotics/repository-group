@@ -1,0 +1,6 @@
+*
+!.gitignore
+!README.md
+!build.gradle
+!settings.gradle
+!gradle.properties
