@@ -11,8 +11,10 @@ Clone this repo, then clone project repositories into it. They will be gitignore
 ### Convert an existing project group
 
 cd /path/to/existing-group
-cd ..
-git clone https://stash.ihmc.us/scm/rob/repository-group.git existing-group
+git init
+git remote add origin https://yourusername@stash.ihmc.us/scm/rob/repository-group.git
+git fetch
+git reset origin/master --hard
 
 ### Keeping files up to date
 
