@@ -23,6 +23,10 @@ git branch --set-upstream-to origin/master master
 
 Pull to update to the latest ihmc-build plugin.
 
+### Cleaning up build files
+
+Run `vcs custom -n --args clean -Xdf` to clean up your repository group. (Requires vcstool)
+
 ### Warning
 
 This repo is read-only. Do not attempt to push your changes!
