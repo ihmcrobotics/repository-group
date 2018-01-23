@@ -25,7 +25,7 @@ Pull to update to the latest ihmc-build plugin.
 
 ### Cleaning up build files
 
-Run `vcs custom -n --args clean -Xdf` to clean up your repository group. (Requires vcstool)
+Run `gradle cleanBuild --console=plain` to clean up your repository group.
 
 ### Warning
 
