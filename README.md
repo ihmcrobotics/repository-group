@@ -2,7 +2,7 @@
 
 ### Purpose
 
-These Gradle files serve as a "glue" for your IHMC projects. Use it to perform Gradle operations on all projects at once, such as "Import" into an IDE.
+These Gradle files serve as a "glue" for your IHMC projects. Use it to perform Gradle operations on many projects at once, such as "Import" into an IDE.
 
 These files are compatible with projects that use the [ihmc-build](https://github.com/ihmcrobotics/ihmc-build) plugin, however, you may clone non-ihmc-build repositories into this group, you will just need to import them into your IDE seperately, and they will not be included in the main build.
 
@@ -39,7 +39,7 @@ This sometimes helps to forces IDEs to recompile the code when state becomes inc
 
 ### Support
 
-@ mention on IHMC Slack #help-desk! 
+Support is provided through Github issues.
 
 Duncan Calvert (dcalvert@ihmc.us)
 
