@@ -23,8 +23,8 @@ cd /path/to/existing-group
 git init
 git remote add origin https://yourusername@stash.ihmc.us/scm/rob/repository-group.git
 git fetch
-git reset origin/master --hard
-git branch --set-upstream-to origin/master master
+git reset origin/develop --hard
+git branch --set-upstream-to origin/develop develop
 ```
 
 ### Staying up to date
