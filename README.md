@@ -23,8 +23,8 @@ cd /path/to/existing-group
 git init
 git remote add origin https://bitbucket.ihmc.us/scm/libs/repository-group.git
 git fetch
+git checkout -b develop
 git reset origin/develop --hard
-git branch develop
 git branch --set-upstream-to origin/develop develop
 ```
 
