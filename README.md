@@ -24,6 +24,7 @@ git init
 git remote add origin https://bitbucket.ihmc.us/scm/libs/repository-group.git
 git fetch
 git reset origin/develop --hard
+git branch develop
 git branch --set-upstream-to origin/develop develop
 ```
 
