@@ -21,7 +21,7 @@ If you already have some repositories cloned, you can initialize this repository
 ```
 cd /path/to/existing-group
 git init
-git remote add origin https://yourusername@bitbucket.ihmc.us/scm/rob/repository-group.git
+git remote add origin https://bitbucket.ihmc.us/scm/libs/repository-group.git
 git fetch
 git reset origin/develop --hard
 git branch --set-upstream-to origin/develop develop
