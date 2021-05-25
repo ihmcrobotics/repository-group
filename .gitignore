@@ -4,5 +4,3 @@
 !build.gradle.kts
 !settings.gradle.kts
 !gradle.properties
-src/main/python/data
-src/main/python/compute_kt/data
