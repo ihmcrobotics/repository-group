@@ -2,9 +2,9 @@
 <GraphGroup>
 	<Cols>3</Cols>
 	<Graph>
-		<Variables>root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightFromTrajectory</Variables>
+		<Variables>root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightFromTrajectory,root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightAfterSmoothing</Variables>
 		<GraphConfiguration>
-			<Name>config9</Name>
+			<Name>config14</Name>
 			<ScalingMethod>1</ScalingMethod>
 			<PlotType>100</PlotType>
 			<ShowBaseLines>true</ShowBaseLines>
@@ -14,9 +14,9 @@
 		</GraphConfig>
 	</Graph>
 	<Graph>
-		<Variables>root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightVelocityFromTrajectory</Variables>
+		<Variables>root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightVelocityFromTrajectory,root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightVelocityAfterSmoothing</Variables>
 		<GraphConfiguration>
-			<Name>config10</Name>
+			<Name>config15</Name>
 			<ScalingMethod>1</ScalingMethod>
 			<PlotType>100</PlotType>
 			<ShowBaseLines>true</ShowBaseLines>
@@ -26,9 +26,9 @@
 		</GraphConfig>
 	</Graph>
 	<Graph>
-		<Variables>root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightAccelerationFromTrajectory</Variables>
+		<Variables>root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightAccelerationFromTrajectory,root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightAccelerationAfterSmoothing</Variables>
 		<GraphConfiguration>
-			<Name>config11</Name>
+			<Name>config16</Name>
 			<ScalingMethod>1</ScalingMethod>
 			<PlotType>100</PlotType>
 			<ShowBaseLines>true</ShowBaseLines>
@@ -38,9 +38,9 @@
 		</GraphConfig>
 	</Graph>
 	<Graph>
-		<Variables></Variables>
+		<Variables>root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightAfterSmoothing,root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightCorrected</Variables>
 		<GraphConfiguration>
-			<Name>config12</Name>
+			<Name>config17</Name>
 			<ScalingMethod>1</ScalingMethod>
 			<PlotType>100</PlotType>
 			<ShowBaseLines>true</ShowBaseLines>
@@ -50,9 +50,21 @@
 		</GraphConfig>
 	</Graph>
 	<Graph>
-		<Variables></Variables>
+		<Variables>root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightVelocityAfterSmoothing,root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightVelocityCorrected</Variables>
 		<GraphConfiguration>
-			<Name>config13</Name>
+			<Name>config18</Name>
+			<ScalingMethod>1</ScalingMethod>
+			<PlotType>100</PlotType>
+			<ShowBaseLines>true</ShowBaseLines>
+			<BaseLines>0.0,</BaseLines>
+			<MaxScaling>1.0</MaxScaling>
+			<MinScaling>0.0</MinScaling>
+		</GraphConfig>
+	</Graph>
+	<Graph>
+		<Variables>root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightAccelerationAfterSmoothing,root.OptimusV2.DRCSimulation.DRCControllerThread.DRCMomentumBasedController.HumanoidHighLevelControllerManager.HighLevelHumanoidControllerFactory.HighLevelControlManagerFactory.CenterOfMassHeightManager.CenterOfMassHeightControlState.desiredCoMHeightAccelerationCorrected</Variables>
+		<GraphConfiguration>
+			<Name>config19</Name>
 			<ScalingMethod>1</ScalingMethod>
 			<PlotType>100</PlotType>
 			<ShowBaseLines>true</ShowBaseLines>
