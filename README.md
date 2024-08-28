@@ -42,6 +42,6 @@ This sometimes helps to forces IDEs to recompile the code when state becomes inc
 
 Support is provided through Github issues.
 
-Duncan Calvert (dcalvert@ihmc.us)
+Duncan Calvert (dcalvert@ihmc.org)
 
 **This repo is read-only. Do not attempt to push your changes!**
