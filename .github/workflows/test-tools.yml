@@ -70,7 +70,8 @@ jobs:
           }
         shell: pwsh
       - name: Check there is no Gradle installed
-        run: gradle --version || exit
+        shell: cmd
+        run: gradle --version || exit /b 0
       - name: Install Gradle
         shell: cmd
         run: tools/installGradle-8.10.1.bat
