@@ -34,7 +34,9 @@ jobs:
         run: gradle --version || exit /b 0
       - name: Install Gradle
         shell: cmd
-        run: tools/installGradle-8.10.1.bat
+        run: |
+          tools/installGradle-8.10.1.bat
+          "C:\Gradle\gradle-8.10.1\bin" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
       - name: Check Gradle
         shell: cmd
         run: gradle --version

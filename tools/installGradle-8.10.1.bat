@@ -25,7 +25,7 @@ ren "%INSTALL_DIR%\gradle-%GRADLE_VERSION%" gradle-%GRADLE_VERSION%
 setx GRADLE_HOME "%INSTALL_DIR%\gradle-%GRADLE_VERSION%" /M
 
 :: Add Gradle to PATH
-powershell -Command "[Environment]::SetEnvironmentVariable('Path', $env:Path + ';%GRADLE_HOME%\bin', [EnvironmentVariableTarget]::Machine)"
+powershell -Command "[System.Environment]::SetEnvironmentVariable('Path', $env:Path + ';%GRADLE_HOME%\bin', [System.EnvironmentVariableTarget]::Machine)"
 
 :: Clean up
 del gradle.zip
