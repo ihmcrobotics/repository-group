@@ -36,7 +36,11 @@ jobs:
         shell: cmd
         run: |
           tools/installGradle-8.10.1.bat
-          "C:\Gradle\gradle-8.10.1\bin" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
+      - name: Refresh environment
+        shell: pwsh
+        run: |
+          Import-Module "$env:ChocolateyInstall/helpers/chocolateyInstaller.psm1"
+          refreshenv
       - name: Check Gradle
         shell: cmd
         run: gradle --version
