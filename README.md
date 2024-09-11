@@ -38,6 +38,18 @@ Run `gradle cleanBuild --console=plain` to clean all `build/` (Gradle), `bin/` (
 
 This sometimes helps to forces IDEs to recompile the code when state becomes inconsistent.
 
+### Gradle install scripts
+
+This repo contains helper scripts (in the `tools` directory) to install Gradle system-wide. There are installation scripts for both Linux (Ubuntu) and Windows.
+
+**Linux usage:**
+```
+cd repository-group/tools
+sudo bash installGradle-<version>.sh
+```
+**Windows usage:**<br>
+Open a file explorer to the repository-group/tools directory. Right click on `installGradle-<version>.bat` and click `Run as administrator`.
+
 ### Support
 
 Support is provided through Github issues.
