@@ -29,6 +29,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Disable pre-installed Gradle
         run: |
+          choco uninstall gradle
+          
           # Remove Gradle installation directory
           $gradleHome = $env:GRADLE_HOME
           if ($gradleHome -and (Test-Path $gradleHome)) {
