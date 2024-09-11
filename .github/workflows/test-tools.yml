@@ -1,0 +1,79 @@
+name: Test tools
+
+on:
+  push:
+    branches: ["develop"]
+  pull_request:
+    branches: ["develop"]
+  workflow_dispatch:
+
+jobs:
+  install-gradle-linux-test:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check there is no Gradle installed
+        run: gradle --version || exit 0
+      - name: Install deps
+        run: |
+          apt update && apt install -y sudo wget curl openjdk-17-jdk
+      - name: Install Gradle
+        run: sudo bash ./tools/installGradle-8.10.1.sh
+      - name: Check Gradle
+        run: gradle --version
+  install-gradle-windows-test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Disable pre-installed Gradle
+        run: |
+          # Remove Gradle installation directory
+          $gradleHome = $env:GRADLE_HOME
+          if ($gradleHome -and (Test-Path $gradleHome)) {
+              Remove-Item -Path $gradleHome -Recurse -Force
+              Write-Host "Removed Gradle installation directory: $gradleHome"
+          }
+
+          # Remove Gradle from PATH
+          $newPath = ($env:Path.Split(';') | Where-Object { $_ -notmatch 'gradle' }) -join ';'
+          [Environment]::SetEnvironmentVariable("Path", $newPath, [EnvironmentVariableTarget]::Machine)
+          [Environment]::SetEnvironmentVariable("Path", $newPath, [EnvironmentVariableTarget]::User)
+          Write-Host "Removed Gradle from PATH"
+
+          # Remove GRADLE_HOME environment variable
+          [Environment]::SetEnvironmentVariable("GRADLE_HOME", $null, [EnvironmentVariableTarget]::Machine)
+          [Environment]::SetEnvironmentVariable("GRADLE_HOME", $null, [EnvironmentVariableTarget]::User)
+          Write-Host "Removed GRADLE_HOME environment variable"
+
+          # Remove .gradle folder in user directory
+          $gradleUserHome = Join-Path $env:USERPROFILE ".gradle"
+          if (Test-Path $gradleUserHome) {
+              Remove-Item -Path $gradleUserHome -Recurse -Force
+              Write-Host "Removed .gradle folder: $gradleUserHome"
+          }
+
+          # Remove Gradle from registry
+          $uninstallKeys = @(
+              "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
+              "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall"
+          )
+
+          foreach ($key in $uninstallKeys) {
+              Get-ChildItem $key | 
+              Where-Object { $_.GetValue("DisplayName") -like "*Gradle*" } | 
+              ForEach-Object {
+                  Remove-Item $_.PSPath -Recurse -Force
+                  Write-Host "Removed Gradle entry from registry: $($_.PSPath)"
+              }
+          }
+        shell: pwsh
+      - name: Check there is no Gradle installed
+        run: gradle --version || exit
+      - name: Install Gradle
+        shell: cmd
+        run: tools/installGradle-8.10.1.bat
+      - name: Check Gradle
+        shell: cmd
+        run: gradle --version

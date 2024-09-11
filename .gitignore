@@ -4,3 +4,8 @@
 !build.gradle.kts
 !settings.gradle.kts
 !gradle.properties
+!tools
+!tools/*
+!.github
+!.github/workflows
+!.github/workflows/*
