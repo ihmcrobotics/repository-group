@@ -17,8 +17,7 @@ jobs:
       - name: Check there is no Gradle installed
         run: gradle --version || exit 0
       - name: Install deps
-        run: |
-          apt update && apt install -y sudo wget curl openjdk-17-jdk
+        run: apt update && apt install -y sudo wget curl openjdk-17-jdk
       - name: Install Gradle
         run: sudo bash ./tools/installGradle-8.10.1.sh
       - name: Check Gradle
@@ -28,8 +27,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Disable pre-installed Gradle
-        run: choco uninstall gradle
         shell: pwsh
+        run: choco uninstall gradle
       - name: Check there is no Gradle installed
         shell: cmd
         run: gradle --version || exit /b 0
