@@ -33,9 +33,8 @@ jobs:
         shell: cmd
         run: gradle --version || exit /b 0
       - name: Install Gradle
-        shell: cmd
-        run: |
-          tools/installGradle-8.10.1.bat
+        shell: pwsh
+        run: tools/installGradle-8.10.1.ps1
       - name: Refresh environment
         shell: pwsh
         run: |
