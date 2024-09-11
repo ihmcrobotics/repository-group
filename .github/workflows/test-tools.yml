@@ -42,5 +42,5 @@ jobs:
           Import-Module "$env:ChocolateyInstall/helpers/chocolateyInstaller.psm1"
           refreshenv
       - name: Check Gradle
-        shell: cmd
+        shell: pwsh
         run: gradle --version
