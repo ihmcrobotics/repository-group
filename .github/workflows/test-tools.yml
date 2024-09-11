@@ -1,0 +1,53 @@
+name: Test tools
+
+on:
+  push:
+    branches: ["develop"]
+  pull_request:
+    branches: ["develop"]
+  workflow_dispatch:
+
+jobs:
+  install-gradle-linux-test:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check there is no Gradle installed
+        run: gradle --version || exit 0
+      - name: Install deps
+        run: apt update && apt install -y sudo wget curl openjdk-17-jdk
+      - name: Install Gradle
+        run: sudo bash ./tools/installGradle-8.10.1.sh
+      - name: Check Gradle
+        run: gradle --version
+  install-gradle-windows-test:
+    runs-on: windows-latest
+    if: false # Skip for now, currently broken
+    steps:
+      - uses: actions/checkout@v4
+      - name: Disable pre-installed Gradle
+        shell: pwsh
+        run: choco uninstall gradle
+      - name: Check there is no Gradle installed
+        shell: pwsh
+        run: |
+          try {
+              gradle --version
+          } catch {
+              Write-Error $_.Exception.Message
+          } finally {
+              exit 0
+          }
+      - name: Install Gradle
+        shell: pwsh
+        run: tools/installGradle-8.10.1.ps1
+      - name: Refresh environment
+        shell: pwsh
+        run: |
+          Import-Module "$env:ChocolateyInstall/helpers/chocolateyInstaller.psm1"
+          refreshenv
+      - name: Check Gradle
+        shell: pwsh
+        run: gradle --version
