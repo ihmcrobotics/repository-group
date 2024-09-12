@@ -30,8 +30,15 @@ jobs:
         shell: pwsh
         run: choco uninstall gradle
       - name: Check there is no Gradle installed
-        shell: cmd
-        run: gradle --version || exit /b 0
+        shell: pwsh
+        run: |
+          try {
+              gradle --version
+          } catch {
+              Write-Error $_.Exception.Message
+          } finally {
+              exit 0
+          }
       - name: Install Gradle
         shell: pwsh
         run: tools/installGradle-8.10.1.ps1

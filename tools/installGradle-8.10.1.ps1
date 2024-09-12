@@ -17,11 +17,10 @@ if (-Not (Test-Path $INSTALL_DIR)) {
 Write-Host "Extracting Gradle..."
 Expand-Archive -Path "gradle.zip" -DestinationPath $INSTALL_DIR
 
-# Rename extracted folder
-Rename-Item -Path "$INSTALL_DIR\gradle-$GRADLE_VERSION" -NewName "gradle-$GRADLE_VERSION"
+$GRADLE_HOME = "$INSTALL_DIR\gradle-$GRADLE_VERSION"
 
 # Set GRADLE_HOME environment variable
-[Environment]::SetEnvironmentVariable("GRADLE_HOME", "$INSTALL_DIR\gradle-$GRADLE_VERSION", [EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable("GRADLE_HOME", "$GRADLE_HOME", [EnvironmentVariableTarget]::Machine)
 
 # Add Gradle to PATH
 $env:Path += ";$GRADLE_HOME\bin"
