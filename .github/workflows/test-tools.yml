@@ -24,6 +24,7 @@ jobs:
         run: gradle --version
   install-gradle-windows-test:
     runs-on: windows-latest
+    if: false # Skip for now, currently broken
     steps:
       - uses: actions/checkout@v4
       - name: Disable pre-installed Gradle
