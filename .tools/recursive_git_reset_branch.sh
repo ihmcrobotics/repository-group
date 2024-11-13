@@ -6,7 +6,6 @@ recursive_git fetch --all --prune
 recursive_git checkout develop
 recursive_git reset --hard
 recursive_git pull
-recursive_git fetch --all --prune
 
 recursive_git_delete_merged_branches
 
