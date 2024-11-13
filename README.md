@@ -8,11 +8,39 @@ These files are compatible with projects that use the [ihmc-build](https://githu
 
 ### Starting from scratch
 
+Use [repository-collections](https://github.com/ihmcrobotics/repository-collections) or build the repo structure manually:
+
 - `git clone` this repository.
 - `cd repository-group`
 - `git clone` project repositories into it.
 
-Normally, nesting Git repos inside of each other is frowned upon, but in this case, the .gitignore uses a whitelist instead of a blacklist, so your repos won't be affected by Git operations on repository-group.
+Normally, nesting Git repos inside each other is frowned upon, but in this case, the .gitignore uses a whitelist instead of a blacklist, so your repos won't be affected by Git operations on repository-group.
+
+### Maintaining the workspace
+
+We provide recursive git scripts in the `.tools` directory to help keep your group up to date.
+
+```
+# Perform Git operation on all repos including this one
+repository-group $ .tools/git_recursive.sh [git args ...]
+
+# Delete local branches after the PR has been merged.
+repository-group $ .tools/git_recursive_delete_merged_branches.sh
+
+# Reset to a branch and rebase it with develop.
+# WARNING: Discard local changes first!
+# This checks out develop, pulls, fetches,
+# checks out, and rebases your branch onto develop.
+repository-group $ .tools/git_recursive_reset_branch.sh branch-name
+
+# Examples:
+
+# Fetch all repos 
+repository-group $ .tools/git_recursive.sh fetch --all
+
+# Start working on your feature and make sure you're up to date with develop
+repository-group $ .tools/git_recursive_reset_branch.sh feature/improvements
+```
 
 ### Convert your existing folder to a repository-group
 
@@ -28,10 +56,6 @@ git reset origin/develop --hard
 git branch --set-upstream-to origin/develop develop
 ```
 
-### Staying up to date
-
-`git pull` to update to the latest ihmc-build plugin.
-
 ### Cleaning up build files
 
 Run `gradle cleanBuild --console=plain` to clean all `build/` (Gradle), `bin/` (Eclipse IDE), and `out/` (IntelliJ IDE) build directories.
@@ -40,11 +64,11 @@ This sometimes helps to forces IDEs to recompile the code when state becomes inc
 
 ### Gradle install scripts
 
-This repo contains helper scripts (in the `tools` directory) to install Gradle system-wide. There are installation scripts for both Linux (Ubuntu) and Windows.
+This repo contains helper scripts (in the `.tools` directory) to install Gradle system-wide. There are installation scripts for both Linux (Ubuntu) and Windows.
 
 **Linux usage:**
 ```
-cd repository-group/tools
+cd repository-group/.tools
 sudo bash installGradle-<version>.sh
 ```
 **Windows usage:**<br>
@@ -55,5 +79,4 @@ Open a file explorer to the repository-group/tools directory. Right click on `in
 Support is provided through Github issues.
 
 Duncan Calvert (dcalvert@ihmc.org)
-
-**This repo is read-only. Do not attempt to push your changes!**
+Dexton Anderson (danderson@ihmc.org)

@@ -10,7 +10,7 @@ git_recursive pull
 git_recursive_delete_merged_branches
 
 if [ "$1" != "develop" ]; then
-  git_recursive checkout $1
+  git_recursive checkout "$1"
   git_recursive reset --hard
   git_recursive pull
   git_recursive rebase develop
