@@ -20,8 +20,8 @@ git_recursive() {
 
   for repo_dir in "${repo_dirs[@]}"; do
     if is_git_repo "$repo_dir"; then
-      echo "git -C \"$repo_dir\" ${@:1}"
-      git -C "$repo_dir" ${@:1}
+      echo "git -C \"$repo_dir\" $*"
+      git -C "$repo_dir" "$@"
     fi
   done
 }
