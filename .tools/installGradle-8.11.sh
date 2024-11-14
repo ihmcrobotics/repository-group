@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set Gradle version
-GRADLE_VERSION="8.10.2"
+GRADLE_VERSION="8.11"
 
 # Set installation directory
 INSTALL_DIR="/opt/gradle"
