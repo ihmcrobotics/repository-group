@@ -1,5 +1,5 @@
 # Set Gradle version
-$GRADLE_VERSION = "8.10.1"
+$GRADLE_VERSION = "8.11"
 
 # Set installation directory
 $INSTALL_DIR = "C:\Gradle"
