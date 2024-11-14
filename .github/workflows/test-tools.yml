@@ -19,7 +19,7 @@ jobs:
       - name: Install deps
         run: apt update && apt install -y sudo wget curl openjdk-17-jdk
       - name: Install Gradle
-        run: sudo bash ./.tools/installGradle-8.10.2.sh
+        run: sudo bash ./.tools/installGradle-8.11.sh
       - name: Check Gradle
         run: gradle --version
   install-gradle-windows-test:
@@ -42,7 +42,7 @@ jobs:
           }
       - name: Install Gradle
         shell: pwsh
-        run: .tools/installGradle-8.10.2.ps1
+        run: .tools/installGradle-8.11.ps1
       - name: Refresh environment
         shell: pwsh
         run: |
