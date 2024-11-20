@@ -1,14 +1,17 @@
 #!/bin/bash
 
 # Set Gradle version
-GRADLE_VERSION="8.11"
+GRADLE_VERSION="8.11.1"
 
 # Set installation directory
 INSTALL_DIR="/opt/gradle"
 
-# Update package list and install required packages
-sudo apt update
-sudo apt install -y wget unzip
+# Check if apt exists to make it somewhat more compatible with distros other than Debian-based
+if command -v apt &> /dev/null; then
+    # Update package list and install required packages
+    sudo apt update
+    sudo apt install -y wget unzip
+fi
 
 # Download Gradle
 echo "Downloading Gradle ${GRADLE_VERSION}..."
