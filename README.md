@@ -27,18 +27,17 @@ repository-group $ .tools/git_recursive.sh [git args ...]
 # Delete local branches after the PR has been merged.
 repository-group $ .tools/git_recursive_delete_merged_branches.sh
 
-# Reset to a branch and rebase it with develop.
+# Reset all repos to each repo's default branch (develop, main, etc.), update submodules, and delete merged branches.
+# With a branch name: also check out that branch (if it exists) and rebase it onto each repo's default.
 # WARNING: Discard local changes first!
-# This checks out develop, pulls, fetches,
-# checks out, and rebases your branch onto develop.
-repository-group $ .tools/git_recursive_reset_branch.sh branch-name
+repository-group $ .tools/git_recursive_reset_branch.sh [branch-name]
 
 # Examples:
 
 # Fetch all repos 
 repository-group $ .tools/git_recursive.sh fetch --all
 
-# Start working on your feature and make sure you're up to date with develop
+# Start working on your feature and make sure you're up to date
 repository-group $ .tools/git_recursive_reset_branch.sh feature/improvements
 ```
 

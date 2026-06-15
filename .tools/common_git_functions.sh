@@ -3,6 +3,14 @@ is_git_repo() {
   git -C "$1" rev-parse --is-inside-work-tree &>/dev/null
 }
 
+# Returns the remote default branch name (e.g. develop, main).
+get_default_branch() {
+  local repo_dir="${1:?repo dir required}" remote="${2:-origin}"
+  git -C "$repo_dir" symbolic-ref "refs/remotes/${remote}/HEAD" 2>/dev/null | sed 's|.*/||' \
+    || git -C "$repo_dir" ls-remote --symref "$remote" HEAD 2>/dev/null \
+    | awk '/^ref:/ { sub("refs/heads/", "", $2); print $2; exit }'
+}
+
 find_repo_dirs() {
   # 1. Recursively find .git folders.
   # 2. Remove the /.git from path.
@@ -14,14 +22,22 @@ find_repo_dirs() {
   | sort
 }
 
-# Recursively runs git commands on all git repos in a directory
+# Recursively runs git commands on all git repos in a directory.
+# Use _default_ in place of a branch name to use each repo's default branch.
 git_recursive() {
   mapfile -t repo_dirs < <(find_repo_dirs)
 
   for repo_dir in "${repo_dirs[@]}"; do
     if is_git_repo "$repo_dir"; then
-      echo "git -C \"$repo_dir\" $*"
-      git -C "$repo_dir" "$@"
+      local args=() arg
+      for arg in "$@"; do
+        if [ "$arg" = "_default_" ]; then
+          arg=$(get_default_branch "$repo_dir")
+        fi
+        args+=("$arg")
+      done
+      echo "git -C \"$repo_dir\" ${args[*]}"
+      git -C "$repo_dir" "${args[@]}"
     fi
   done
 }
